@@ -9,10 +9,15 @@ void draw()
 {
 	background(0);
 	flashlight();
-  	if(lightSwitch == true)
+	prism();
+  	if(lightSwitch == true && lightBeamWidth < 210)
   	{
   		light();
   		lightBeamWidth = lightBeamWidth + 70;
+  	}
+  	else if(lightSwitch == true && lightBeamWidth > 210)
+  	{
+  		light();
   	}
   	else if(lightSwitch == false)
   	{
@@ -36,7 +41,7 @@ void flashlight()
 }
 void light()
 {
-	fill(255);
+	fill(255,255,255,200);
 	noStroke();
 	rect(121, 160, lightBeamWidth, 80);
 }
@@ -55,5 +60,13 @@ void mouseClicked()
 }
 void prism()
 {
-	triangle()
+	fill(180,180,180);
+	stroke(0);
+	triangle(350,260, 400, 260, 375, 200);
+	beginShape();
+		vertex(350, 260);
+		vertex(300, 180);
+		vertex(325, 120);
+		vertex(375, 200);
+	endShape();
 }
