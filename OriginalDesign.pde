@@ -1,5 +1,6 @@
 int lightSwitchX = 50;
 int lightBeamWidth = 0;
+int rainbowWidth = 0;
 boolean lightSwitch = false;
 void setup()
 {
@@ -9,20 +10,26 @@ void draw()
 {
 	background(0);
 	flashlight();
-	prism();
-  	if(lightSwitch == true && lightBeamWidth < 210)
+	if(lightBeamWidth == 210)
   	{
-  		light();
-  		lightBeamWidth = lightBeamWidth + 70;
+  		rainbow();
+  		rainbowWidth = rainbowWidth + 70;
   	}
-  	else if(lightSwitch == true && lightBeamWidth > 210)
+  	prism();
+  	if(lightSwitch == true)
   	{
   		light();
+  		while (lightBeamWidth < 210)
+  		{
+  			lightBeamWidth = lightBeamWidth + 70;
+  		}
   	}
   	else if(lightSwitch == false)
   	{
   		lightBeamWidth = 0;
+  		rainbowWidth = 0;
   	}
+
 }
 void flashlight()
 {
@@ -41,9 +48,9 @@ void flashlight()
 }
 void light()
 {
-	fill(255,255,255,200);
+	fill(255,255,255,250);
 	noStroke();
-	rect(121, 160, lightBeamWidth, 80);
+	rect(121, 165, lightBeamWidth, 70);
 }
 void mouseClicked()
 {
@@ -62,11 +69,29 @@ void prism()
 {
 	fill(180,180,180);
 	stroke(0);
-	triangle(350,260, 400, 260, 375, 200);
+	triangle(335,260, 385, 260, 360, 200);
 	beginShape();
-		vertex(350, 260);
-		vertex(300, 180);
-		vertex(325, 120);
-		vertex(375, 200);
+		vertex(335, 260);
+		vertex(285, 180);
+		vertex(310, 120);
+		vertex(360, 200);
 	endShape();
+}
+void rainbow()
+{
+	noStroke();
+	fill(255, 0, 0);
+	rect(332, 165, rainbowWidth, 10);
+	fill(255, 119, 0);
+	rect(332, 175, rainbowWidth, 10);
+	fill(252, 236, 14);
+	rect(332, 185, rainbowWidth, 10);
+	fill(0, 255, 0);
+	rect(332, 195, rainbowWidth, 10);
+	fill(0, 0, 255);
+	rect(332, 205, rainbowWidth, 10);
+	fill(97, 6, 255);
+	rect(332, 215, rainbowWidth, 10);
+	fill(169, 14, 252);
+	rect(332, 225, rainbowWidth, 10);
 }
