@@ -48,7 +48,7 @@ void flashlight()
 }
 void light()
 {
-	fill(255,255,255,250);
+	fill(255,255,255,220);
 	noStroke();
 	rect(121, 165, lightBeamWidth, 70);
 }
@@ -67,7 +67,7 @@ void mouseClicked()
 }
 void prism()
 {
-	fill(200);
+	fill(200,200,200,230);
 	stroke(0);
 	triangle(335,260, 385, 260, 360, 200);
 	beginShape();
