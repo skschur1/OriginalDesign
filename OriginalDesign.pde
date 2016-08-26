@@ -67,7 +67,7 @@ void mouseClicked()
 }
 void prism()
 {
-	fill(180,180,180);
+	fill(200);
 	stroke(0);
 	triangle(335,260, 385, 260, 360, 200);
 	beginShape();
