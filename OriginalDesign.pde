@@ -48,7 +48,7 @@ void flashlight()
 }
 void light()
 {
-	fill(255,255,255,22			0);
+	fill(255,255,255,220);
 	noStroke();
 	rect(121, 165, lightBeamWidth, 70);
 }
